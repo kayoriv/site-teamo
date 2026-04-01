@@ -3,29 +3,47 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>tudo por voce ❤️</title>
+  <title>tudo por você ❤️</title>
 
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
+      font-family: Arial, sans-serif;
       background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      color: #fff;
+      color: white;
       text-align: center;
+    }
+
+    .envelope {
+      width: 250px;
+      height: 150px;
+      background: #ff4d6d;
+      margin: 150px auto;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.1);
+    }
+
+    .aberto {
+      animation: abrir 1s forwards;
+    }
+
+    @keyframes abrir {
+      0% { transform: scaleY(1); }
+      100% { transform: scaleY(0); opacity: 0; }
     }
 
     .container {
       padding: 40px;
-    }
-
-    h1 {
-      font-size: 3em;
-    }
-
-    p {
-      font-size: 1.2em;
-      max-width: 600px;
-      margin: auto;
+      display: none;
     }
 
     img {
@@ -42,13 +60,7 @@
       border-radius: 30px;
       background: #ff4d6d;
       color: white;
-      font-size: 1em;
       cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background: #ff1e4d;
     }
 
     .hidden {
@@ -75,11 +87,6 @@
       height: 150px;
       object-fit: cover;
       border-radius: 15px;
-      transition: 0.3s;
-    }
-
-    .galeria img:hover {
-      transform: scale(1.1);
     }
 
     @keyframes fall {
@@ -94,67 +101,71 @@
 
 <body>
 
-  <div class="container">
-    <h1>Oi, meu amor ❤️ </h1>
+<div class="envelope" onclick="abrirCarta()">
+  💌 Abra quando estiver sozinho
+</div>
 
-```
-<p>
-  Eu fiz esse site só pra te lembrar o quanto você é especial pra mim 
-</p>
+<div class="container" id="conteudo">
+
+  <h1>Oi, meu amor ❤️</h1>
+
+  <p>
+    Eu fiz esse site só pra te lembrar o quanto você é especial pra mim 💖
+  </p>
 
 <button onclick="mostrarTudo()">Clique aqui 💌</button>
 
-<!-- SURPRESA -->
-<div id="surpresa" class="hidden">
+  <div id="surpresa" class="hidden">
 
-  <img src="foto.jpg" alt="Nós dois">
+```
+<img src="foto.jpg">
 
-  <h2>Nos dois ❤️ </h2>
-
-  <div class="galeria">
-    <img src="foto1.jpg">
-    <img src="foto2.jpg">
-    <img src="foto3.jpg">
-    <img src="foto4.jpg">
-  </div>
-
-  <p style="margin-top:20px;">
-    Eu te amo mais do que tudo amor, eu te amo infinito 💕
-  </p>
-
-  <!-- MÚSICA -->
-  <audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-  </audio>
-
+<div class="galeria">
+  <img src="foto1.jpg">
+  <img src="foto2.jpg">
+  <img src="foto3.jpg">
+  <img src="foto4.jpg">
 </div>
+
+<p style="margin-top:20px;">
+  Eu te amo mais do que tudo amor, eu te amo infinito 💕
+</p>
 ```
 
   </div>
 
-  <script>
-    function mostrarTudo() {
-      const surpresa = document.getElementById("surpresa");
-      surpresa.style.display = "block";
+</div>
 
-      document.getElementById("musica").play();
+<script>
+function abrirCarta() {
+  const envelope = document.querySelector(".envelope");
+  envelope.classList.add("aberto");
 
-      // corações 💗
-      setInterval(() => {
-        const heart = document.createElement("div");
-        heart.innerHTML = "💖";
-        heart.style.position = "fixed";
-        heart.style.top = "0";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.fontSize = "20px";
-        heart.style.animation = "fall 3s linear";
+  setTimeout(() => {
+    envelope.style.display = "none";
+    document.getElementById("conteudo").style.display = "block";
+  }, 1000);
+}
 
-        document.body.appendChild(heart);
+function mostrarTudo() {
+  const surpresa = document.getElementById("surpresa");
+  surpresa.style.display = "block";
 
-        setTimeout(() => heart.remove(), 3000);
-      }, 300);
-    }
-  </script>
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.innerHTML = "💖";
+    heart.style.position = "fixed";
+    heart.style.top = "0";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = "20px";
+    heart.style.animation = "fall 3s linear";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 3000);
+  }, 300);
+}
+</script>
 
 </body>
 </html>
