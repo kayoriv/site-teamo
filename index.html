@@ -1,8 +1,9 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Pra Você ❤️</title>
+  <title>tudo por voce ❤️</title>
 
   <style>
     body {
@@ -53,35 +54,105 @@
     .hidden {
       display: none;
       margin-top: 20px;
-      font-size: 1.3em;
+      animation: fade 1s;
+    }
+
+    @keyframes fade {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .galeria img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 15px;
+      transition: 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.1);
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
     }
   </style>
+
 </head>
 
 <body>
 
   <div class="container">
-    <h1>Oi, meu amor 💖</h1>
+    <h1>Oi, meu amor ❤️ </h1>
 
-    <p>
-      Eu fiz esse site só pra te lembrar o quanto você é especial pra mim.
-      Cada momento com você é único e eu sou muito feliz por ter você ❤️
-    </p>
+```
+<p>
+  Eu fiz esse site só pra te lembrar o quanto você é especial pra mim 
+</p>
 
-    <img src="foto.jpg" alt="Nós dois">
+<button onclick="mostrarTudo()">Clique aqui 💌</button>
 
-    <br>
+<!-- SURPRESA -->
+<div id="surpresa" class="hidden">
 
-    <button onclick="mostrarMensagem()">Clique aqui 💌</button>
+  <img src="foto.jpg" alt="Nós dois">
 
-    <div id="mensagem" class="hidden">
-      Eu te amo mais do que palavras conseguem explicar 💖✨
-    </div>
+  <h2>Nos dois ❤️ </h2>
+
+  <div class="galeria">
+    <img src="foto1.jpg">
+    <img src="foto2.jpg">
+    <img src="foto3.jpg">
+    <img src="foto4.jpg">
+  </div>
+
+  <p style="margin-top:20px;">
+    Eu te amo mais do que tudo amor, eu te amo infinito 💕
+  </p>
+
+  <!-- MÚSICA -->
+  <audio id="musica" loop>
+    <source src="musica.mp3" type="audio/mpeg">
+  </audio>
+
+</div>
+```
+
   </div>
 
   <script>
-    function mostrarMensagem() {
-      document.getElementById("mensagem").style.display = "block";
+    function mostrarTudo() {
+      const surpresa = document.getElementById("surpresa");
+      surpresa.style.display = "block";
+
+      document.getElementById("musica").play();
+
+      // corações 💗
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.innerHTML = "💖";
+        heart.style.position = "fixed";
+        heart.style.top = "0";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.fontSize = "20px";
+        heart.style.animation = "fall 3s linear";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
+      }, 300);
     }
   </script>
 
