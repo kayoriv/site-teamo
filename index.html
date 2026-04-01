@@ -95,6 +95,24 @@
         opacity: 0;
       }
     }
+
+    /* NOME E CONTADOR 💖 */
+    #nome {
+      font-size: 2em;
+      margin-top: 10px;
+      animation: aparecer 2s;
+    }
+
+    #tempoJuntos {
+      margin-top: 10px;
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 
 </head>
@@ -109,6 +127,14 @@
 
   <h1>Oi, meu amor ❤️</h1>
 
+  <!-- NOME -->
+
+  <h2 id="nome">Nicolas 💘</h2>
+
+  <!-- CONTADOR -->
+
+  <p id="tempoJuntos"></p>
+
   <p>
     Eu fiz esse site só pra te lembrar o quanto você é especial pra mim 💖
   </p>
@@ -117,7 +143,7 @@
 
   <div id="surpresa" class="hidden">
 
-```
+
 <img src="foto.jpg">
 
 <div class="galeria">
@@ -130,7 +156,7 @@
 <p style="margin-top:20px;">
   Eu te amo mais do que tudo amor, eu te amo infinito 💕
 </p>
-```
+
 
   </div>
 
@@ -165,6 +191,23 @@ function mostrarTudo() {
     setTimeout(() => heart.remove(), 3000);
   }, 300);
 }
+
+/* CONTADOR 💝 */
+function atualizarTempo() {
+  const inicio = new Date("2025-09-02"); // 
+
+  const agora = new Date();
+  const diff = agora - inicio;
+
+  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+
+  document.getElementById("tempoJuntos").innerHTML =
+    `juntinhos desde ${dias} dias e ${horas} horas 💕`;
+}
+
+setInterval(atualizarTempo, 1000);
+atualizarTempo();
 </script>
 
 </body>
