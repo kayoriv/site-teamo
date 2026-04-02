@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 
 <html lang="pt-br">
-<head>
+<head> <link href="https://fonts.googleapis.com/css2?family=Grand+Hotel&display=swap" rel="stylesheet">
   <meta charset="UTF-8">
   <title>tudo por você ❤️</title>
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      color: white;
-      text-align: center;
-    }
-
+  body {
+  margin: 0;
+  font-family: 'Grand Hotel', cursive;
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  color: white;
+  text-align: center;
+}
     .envelope {
       width: 250px;
       height: 150px;
@@ -95,24 +94,6 @@
         opacity: 0;
       }
     }
-
-    /* NOME E CONTADOR 💖 */
-    #nome {
-      font-size: 2em;
-      margin-top: 10px;
-      animation: aparecer 2s;
-    }
-
-    #tempoJuntos {
-      margin-top: 10px;
-      font-size: 1.1em;
-      opacity: 0.9;
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 
 </head>
@@ -125,15 +106,7 @@
 
 <div class="container" id="conteudo">
 
-  <h1>oiiii meu amorzinho lindo</h1>
-
-  <!-- NOME -->
-
-  <h2 id="nome">meu Nicolas fofinho</h2>
-
-  <!-- CONTADOR -->
-
-  <p id="tempoJuntos"></p>
+  <h1>Oi, meu amor ❤️</h1>
 
   <p>
     Eu fiz esse site só pra te lembrar o quanto você é especial pra mim 💖
@@ -154,7 +127,9 @@
 </div>
 
 <p style="margin-top:20px;">
-  Eu te amo mais do que tudo amor, eu te amo infinito 💕
+  oiiiii amor antes de tudo FELIZ ANIVERSARIO, me desculpa por nao ter ficado tao bom esse presente mas eu me esforcei de verdade, eu to aprendendo ainda e prometo que vou fazer melhor da proxima vez. eu so queria que voce soubesse o quanto vc eh importante pra mim, voce faz meus dias serem melhores so de existir, e eu sou muito feliz por ter voce ao meu lado meu bebe
+nem sempre eu consigo demonstrar tudo que eu sinto, mas eu te amo muito te amo de verdade, de um jeito que cada detalhe seu me encanta, tudo sobre voce me encanta.
+eu espero que esse novo ano da sua vida seja repleto de coisas boas, conquistas e muita felicidade meu amor, eu te daria o mundo inteiro se eu conseguisse. Eu te amo muito muito muito, feliz aniversario e feliz nosso dia meu amorzinho lindo fofo perfeito, te amo 💕
 </p>
 
 
@@ -191,23 +166,6 @@ function mostrarTudo() {
     setTimeout(() => heart.remove(), 3000);
   }, 300);
 }
-
-/* CONTADOR 💝 */
-function atualizarTempo() {
-  const inicio = new Date("2025-09-02"); // 
-
-  const agora = new Date();
-  const diff = agora - inicio;
-
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-
-  document.getElementById("tempoJuntos").innerHTML =
-    `juntinhos desde ${dias} dias e ${horas} horas 💕`;
-}
-
-setInterval(atualizarTempo, 1000);
-atualizarTempo();
 </script>
 
 </body>
